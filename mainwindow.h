@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <generator.h>
 
 namespace Ui {
 class MainWindow;
@@ -19,11 +20,14 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-    void addHello();
+    void newValue(int value);
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
+    Generator *generator;
 };
 
 #endif // MAINWINDOW_H

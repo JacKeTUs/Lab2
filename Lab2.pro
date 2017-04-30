@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    queue.cpp
+    queue.cpp \
+    generator.cpp
 
 HEADERS  += mainwindow.h \
-    queue.h
+    queue.h \
+    generator.h
 
 FORMS    += mainwindow.ui

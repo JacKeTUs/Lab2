@@ -7,8 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    generator = new Generator(this);
+    generator->setBorder(10);
+
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(addHello()));
+    connect(generator, SIGNAL(new_value(int)), this, SLOT(newValue(int)));
 }
 
 MainWindow::~MainWindow()
@@ -19,10 +22,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    timer->start(100);
+    generator->startMyTimer(100, 1000);
 }
 
-void MainWindow::addHello()
+void MainWindow::newValue(int value)
 {
-    ui->listWidget->addItem("hello");
+    ui->listWidget->addItem(QString::number(value));
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    generator->stopTimer();
 }

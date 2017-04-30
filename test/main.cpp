@@ -20,8 +20,6 @@ bool test_delete()
     q.enqueue(7);
     q.dequeue();
 
-
-
     if ((q.getLength() == 2) && (q.head() == 6))
         return true;
 
