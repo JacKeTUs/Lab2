@@ -9,18 +9,21 @@ void Queue::enqueue(int value)
 {
     if (minimums.isEmpty() || (value < minimums.first()))
         minimums.push(value);
-
     if (maximums.isEmpty() || (value > maximums.first()))
         maximums.push(value);
 
     data.append(value);
-    return;
 }
 
 void Queue::dequeue()
 {
-    data.pop_front();
-    return;
+    int value = data.takeFirst();
+
+
+    if (value == minimum())
+        minimums.pop();
+    if (value == maximum())
+        maximums.pop();
 }
 
 int Queue::minimum()

@@ -18,8 +18,10 @@ bool test_delete()
     q.enqueue(5);
     q.enqueue(6);
     q.enqueue(7);
-
     q.dequeue();
+
+
+
     if ((q.getLength() == 2) && (q.head() == 6))
         return true;
 
@@ -32,8 +34,10 @@ bool test_minimum()
     q.enqueue(6);
     q.enqueue(3);
     q.enqueue(7);
+    q.enqueue(2);
+    q.dequeue();
 
-    if (q.minimum() == 3)
+    if (q.minimum() == 2)
         return true;
 
     return false;
@@ -45,9 +49,9 @@ bool test_maximum()
     q.enqueue(6);
     q.enqueue(3);
     q.enqueue(7);
-    q.enqueue(3);
+    q.dequeue();
 
-    if (q.minimum() == 7)
+    if (q.maximum() == 7)
         return true;
 
     return false;

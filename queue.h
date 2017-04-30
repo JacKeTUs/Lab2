@@ -2,6 +2,7 @@
 #define QUEUE_H
 #include "QList"
 #include "QStack"
+#include "QQueue"
 
 class Queue
 {
@@ -15,6 +16,7 @@ public:
 
     int getLength() { return data.length(); }
     int head() { return data.first(); }
+    int tail() { return data.last(); }
 
 private:
     QList<int> data;
