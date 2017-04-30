@@ -1,6 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
-#include "QQueue"
+#include "QList"
+#include "QStack"
 
 class Queue
 {
@@ -17,6 +18,8 @@ public:
 
 private:
     QList<int> data;
+    QStack<int> minimums;
+    QStack<int> maximums;
 };
 
 #endif // QUEUE_H

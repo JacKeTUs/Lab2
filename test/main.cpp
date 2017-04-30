@@ -12,6 +12,46 @@ bool test_add()
     return false;
 }
 
+bool test_delete()
+{
+    Queue q;
+    q.enqueue(5);
+    q.enqueue(6);
+    q.enqueue(7);
+
+    q.dequeue();
+    if ((q.getLength() == 2) && (q.head() == 6))
+        return true;
+
+    return false;
+}
+
+bool test_minimum()
+{
+    Queue q;
+    q.enqueue(6);
+    q.enqueue(3);
+    q.enqueue(7);
+
+    if (q.minimum() == 3)
+        return true;
+
+    return false;
+}
+
+bool test_maximum()
+{
+    Queue q;
+    q.enqueue(6);
+    q.enqueue(3);
+    q.enqueue(7);
+    q.enqueue(3);
+
+    if (q.minimum() == 7)
+        return true;
+
+    return false;
+}
 
 int main(int argc, char *argv[])
 {
@@ -19,11 +59,14 @@ int main(int argc, char *argv[])
 
     bool result;
     result = test_add();
+    printf(result ? "Test OK\n" : "Test FAILED\n");
+    result = test_delete();
+    printf(result ? "Test OK\n" : "Test FAILED\n");
+    result = test_minimum();
+    printf(result ? "Test OK\n" : "Test FAILED\n");
+    result = test_maximum();
+    printf(result ? "Test OK\n" : "Test FAILED\n");
 
-    if (result)
-        printf("all ok!");
-    else
-        printf("not OK");
 
     return a.exec();
 

@@ -7,6 +7,12 @@ Queue::Queue()
 
 void Queue::enqueue(int value)
 {
+    if (minimums.isEmpty() || (value < minimums.first()))
+        minimums.push(value);
+
+    if (maximums.isEmpty() || (value > maximums.first()))
+        maximums.push(value);
+
     data.append(value);
     return;
 }
@@ -19,12 +25,10 @@ void Queue::dequeue()
 
 int Queue::minimum()
 {
-
-    return -1;
+    return minimums.top();
 }
 
 int Queue::maximum()
 {
-
-    return -1;
+    return maximums.top();
 }
