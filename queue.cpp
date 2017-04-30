@@ -7,13 +7,13 @@ Queue::Queue()
 
 void Queue::enqueue(int value)
 {
-
+    data.append(value);
     return;
 }
 
 void Queue::dequeue()
 {
-
+    data.pop_front();
     return;
 }
 
