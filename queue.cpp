@@ -2,36 +2,59 @@
 
 Queue::Queue()
 {
+    data = new QList<int>;
 
+    cur_maximum = INT_MIN;
+    cur_minimum= INT_MAX;
+    data->clear();
 }
 
 void Queue::enqueue(int value)
 {
-    if (minimums.isEmpty() || (value < minimums.first()))
-        minimums.push(value);
-    if (maximums.isEmpty() || (value > maximums.first()))
-        maximums.push(value);
+    if (getLength() > MAX_QUEUE)
+        dequeue();
 
-    data.append(value);
+    if (value > cur_maximum)
+        cur_maximum = value;
+
+    if (value < cur_minimum)
+        cur_minimum = value;
+
+    data->append(value);
 }
 
 void Queue::dequeue()
 {
-    int value = data.takeFirst();
+    int value = data->takeFirst();
 
-
-    if (value == minimum())
-        minimums.pop();
-    if (value == maximum())
-        maximums.pop();
+    if ((value == cur_maximum) || (value == cur_minimum))
+        updateMinMax();
 }
 
 int Queue::minimum()
 {
-    return minimums.top();
+    return cur_minimum;
 }
 
 int Queue::maximum()
 {
-    return maximums.top();
+    return cur_maximum;
+}
+
+QList<int> *Queue::getData()
+{
+    return data;
+}
+
+void Queue::updateMinMax()
+{
+    cur_maximum = INT_MIN;
+    cur_minimum= INT_MAX;
+    int v;
+    for(int i = 0; i < data->length(); i++)
+    {
+        v = data->at(i);
+        if (v > cur_maximum) cur_maximum = v;
+        if (v < cur_minimum) cur_minimum = v;
+    }
 }

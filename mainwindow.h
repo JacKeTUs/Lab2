@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <generator.h>
+#include <queue.h>
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,7 @@ public:
 private slots:
     void on_pushButton_clicked();
     void newValue(int value);
+    void updateQueue();
 
     void on_pushButton_2_clicked();
 
@@ -28,6 +30,7 @@ private:
     Ui::MainWindow *ui;
     QTimer *timer;
     Generator *generator;
+    Queue *q;
 };
 
 #endif // MAINWINDOW_H
