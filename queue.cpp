@@ -4,6 +4,7 @@ Queue::Queue()
 {
     data = new QList<int>;
 
+    max_queue_length = 10;
     cur_maximum = INT_MIN;
     cur_minimum= INT_MAX;
     data->clear();
