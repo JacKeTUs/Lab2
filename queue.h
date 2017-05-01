@@ -4,7 +4,6 @@
 #include "QStack"
 #include "QQueue"
 #include "QPair"
-#define MAX_QUEUE 10
 
 #define MIN(a, b) ((a) > (b) ? (b) : (a))
 #define MAX(a, b) ((a) < (b) ? (b) : (a))
@@ -22,6 +21,7 @@ public:
     int getLength() { return ((!data || data->isEmpty()) ? 0 : data->length()); }
     int head() { return data->first(); }
     int tail() { return data->last(); }
+    void setMaxLength(int value) { max_queue_length = value; }
 
     QList<int> *getData();
 
@@ -30,6 +30,7 @@ private:
     void updateMinMax();
     int cur_minimum;
     int cur_maximum;
+    int max_queue_length;
 };
 
 #endif // QUEUE_H

@@ -11,7 +11,7 @@ Queue::Queue()
 
 void Queue::enqueue(int value)
 {
-    if (getLength() > MAX_QUEUE)
+    while (getLength() >= max_queue_length)
         dequeue();
 
     if (value > cur_maximum)

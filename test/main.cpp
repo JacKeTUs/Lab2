@@ -48,7 +48,6 @@ bool test_minimum2()
     q->enqueue(3);
     q->enqueue(7);
     q->enqueue(2);
-    q->dequeue();
 
     if (q->minimum() == 2)
         return true;

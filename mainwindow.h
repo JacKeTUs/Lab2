@@ -26,11 +26,18 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_spinBox_valueChanged(int arg1);
+
+    void on_spinBox_2_valueChanged(int arg1);
+
+    void on_spinBox_3_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
     Generator *generator;
     Queue *q;
+    int genCount;
 };
 
 #endif // MAINWINDOW_H
